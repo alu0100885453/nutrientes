@@ -52,6 +52,33 @@ describe Energia do
           it "Estan los lípidos de los alimentos" do
             expect(@Huevo_frito.lipidos).to eq(19.5)
           end
-
+  
+          it "Estan los alimentos formateados" do
+            expect(@Huevo_frito.to_s).to eq("\t\t   Proteínas\tGlúcidos\tLípidos\nHuevo frito\t\t14.1\t\t0.0\t\t19.5\n")
+          end
+          
+          
+          it "Estan los valores energéticos" do
+            expect(@Huevo_frito.get_valor_energetico).to eq(231.9)
+            expect(@Leche_vaca.get_valor_energetico).to eq(61.2)
+            expect(@Yogurt.get_valor_energetico).to eq(69.0)
+            expect(@Cerdo.get_valor_energetico).to eq(142.7)
+            expect(@Ternera.get_valor_energetico).to eq(112.3)
+            expect(@Pollo.get_valor_energetico).to eq(132.8)
+            expect(@Bacalao.get_valor_energetico).to eq(74.4)
+            expect(@Atun.get_valor_energetico).to eq(225.5)
+            expect(@Salmon.get_valor_energetico).to eq(202.0)
+            expect(@Aceite_oliva.get_valor_energetico).to eq(897.2)
+            expect(@Chocolate.get_valor_energetico).to eq(479.2)
+            expect(@Azucar.get_valor_energetico).to eq(399.2)
+            expect(@Arroz.get_valor_energetico).to eq(343.4)
+            expect(@Lentejas.get_valor_energetico).to eq(314.6)
+            expect(@Papas.get_valor_energetico).to eq(70.5)
+            expect(@Tomate.get_valor_energetico).to eq(19.8)
+            expect(@Cebolla.get_valor_energetico).to eq(31.1)
+            expect(@Manzana.get_valor_energetico).to eq(54.4)
+            expect(@Platanos.get_valor_energetico).to eq(92.2)
+            
+          end
     end
 end
