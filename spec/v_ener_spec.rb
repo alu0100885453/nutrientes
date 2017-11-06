@@ -1,6 +1,6 @@
 #encoding: UTF-8
 require 'spec_helper'
-require 'lib/V_energetico/energia'
+require 'lib/v_energetico/energia'
 
 
 describe Energia do 

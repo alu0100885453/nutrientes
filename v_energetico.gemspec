@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "V_energetico/version"
+require "v_energetico/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "V_energetico"
-  spec.version       = VEnergetico::VERSION
+  spec.name          = "v_energetico"
+  spec.version       = vEnergetico::VERSION
   spec.authors       = ["Gabriel Fdez"]
   spec.email         = ["alu0100885453@ull.edu.es"]
 
