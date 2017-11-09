@@ -94,13 +94,29 @@ describe Lista do
   end
   
   it "Comprobamos que la lista está vacía" do
-    expect(@list.size).to eq(0)
+    expect(@list.empty).to eq(true)
   end
   
   it "Se puede insertar un elemento en la lista" do
     @list.insert_single(@huevo)
     expect(@list.inicio.value).to eq(@huevo) 
     expect(@list.size).to eq(1)
+    expect(@list.empty).to eq(false)
+    
+  end
+  
+  it "Se extrae el primer elemento de la lista" do
+    @list.insert_single(@huevo)
+    expect(@list.extract_beg()).to eq("\t\t   Proteínas\tGlúcidos\tLípidos\nHuevo Frito\t\t14.1\t\t0.0\t\t19.5\n")
+    expect(@list.empty).to eq(true)
+  end
+  
+  it "Se pueden insertar varios elementos y extraer el último" do
+    @conj_nodos = ["a",@huevo,99]
+    @list.insert_multiple(@conj_nodos)
+    expect(@list.size).to eq(3)
+    expect(@list.extract_beg()).to eq("99")
+    expect(@list.extract_end()).to eq("a")
     
   end
   

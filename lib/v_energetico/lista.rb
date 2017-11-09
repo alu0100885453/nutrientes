@@ -29,4 +29,54 @@ class Lista
         end
     end
     
+    def extract_beg()
+        if(@size==0)
+           puts "No hay elementos"
+        elsif(@size==1)
+           sale = Node.new(@inicio.value,nil,nil)
+           @size -= 1
+           @inicio = Node.new(nil,nil,nil)
+           @final = Node.new(nil,nil,nil)
+           "#{sale.value}"
+        elsif(@size > 1)
+           @size -= 1
+           sale = Node.new(@inicio.value,nil,nil)
+           @inicio.prev.next = nil
+           @inicio = @inicio.prev
+           "#{sale.value}"
+        end
+    end
+    
+    def extract_end()
+        if(@size==0)
+           puts "No hay elementos"
+        elsif(@size == 1)
+           sale = Node.new(@final.value,nil,nil)
+           @size-=1
+           @inicio = Node.new(nil,nil,nil)
+           @final = Node.new(nil,nil,nil)
+           "#{sale.value}"
+        elsif(@size > 1)
+           @size-=1
+           sale = Node.new(@final.value,nil,nil)
+           @final.next.prev = nil
+           @final = @final.next
+           "#{sale.value}"
+        end
+    end
+    
+    def insert_multiple(array)
+        array.each do |element|
+            insert_single(element)
+        end
+    end
+    
+    def empty()
+        if(@inicio.value == nil)
+            return true
+        else
+            return false
+        end
+    end
+    
 end
