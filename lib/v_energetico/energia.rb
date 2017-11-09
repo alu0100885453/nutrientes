@@ -35,3 +35,22 @@ class Energia
     
 end
 
+
+class Grupo_alimentos < Energia
+
+    
+    
+    
+    
+    def initialize(a,b,c,d,e)
+        super(a,b,c,d)
+        @nombre_grupo = e
+    end
+    
+    def to_s
+    
+        
+    end
+    
+end
+
