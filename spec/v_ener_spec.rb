@@ -97,5 +97,11 @@ describe Lista do
     expect(@list.size).to eq(0)
   end
   
+  it "Se puede insertar un elemento en la lista" do
+    @list.insert_single(@huevo)
+    expect(@list.inicio.value).to eq(@huevo) 
+    expect(@list.size).to eq(1)
+    
+  end
   
 end
