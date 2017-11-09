@@ -1,3 +1,4 @@
+
 class Energia
     
     attr_accessor :alimento, :proteinas, :glucidos, :lipidos, :valor_ener
@@ -5,6 +6,10 @@ class Energia
     def initialize(a,b,c,d)
        
         @alimento, @proteinas, @glucidos, @lipidos, @valor_ener = a, b, c, d, []
+    end
+    
+    def add(a,b,c,d)
+        initialize(a,b,c,d)
     end
     
     def to_s
@@ -29,3 +34,4 @@ class Energia
     end
     
 end
+

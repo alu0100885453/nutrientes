@@ -5,11 +5,11 @@ require "v_energetico/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "v_energetico"
-  spec.version       = vEnergetico::VERSION
+  spec.version       = VEnergetico::VERSION
   spec.authors       = ["Gabriel Fdez"]
   spec.email         = ["alu0100885453@ull.edu.es"]
 
-  spec.summary       = %q{Calcula valores energeticos.}
+  spec.summary       = %q{"Calcula valores energeticos."}
   
   spec.homepage      = "https://github.com/ULL-ESIT-LPP-1718/tdd-alu0100885453"
 
@@ -31,4 +31,10 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.15"
   spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "rspec", "~> 3.0"
+  
+  spec.add_development_dependency "guard"
+  spec.add_development_dependency "guard-rspec"
+  spec.add_development_dependency "guard-bundler"
+
 end
