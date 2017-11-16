@@ -19,6 +19,7 @@ class Energia
         initialize(a,b,c,d)
     end
     
+    #Muestra los alimentos formateados
     def to_s
 
         out = "\t\t   Proteínas\tGlúcidos\tLípidos\n"
