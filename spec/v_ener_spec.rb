@@ -3,7 +3,7 @@ require 'spec_helper'
 require './lib/v_energetico/energia'
 require './lib/v_energetico/lista'
 
-describe Energia do 
+RSpec.describe Energia do 
     before :each do
    
     
@@ -78,7 +78,7 @@ describe Energia do
 end
 
 
-describe Lista do
+RSpec.describe Lista do
           
   before :each do
     @list = Lista.new()
@@ -122,6 +122,56 @@ describe Lista do
     expect(@list.extract_end()).to eq("a")
     
   end
+  
+  context "Probando enumerable" do
+       
+      it "All y any " do
+        @list3.insert_single(1)
+        @list3.insert_single(nil)
+        expect(@list3.all?).to eq(false)
+        expect(@list3.any?).to eq(true)
+        
+      end
+      
+      it "Find, Drop y Count" do
+        
+        @list3.insert_single(1)
+        @list3.insert_single(2)
+        @list3.insert_single(3)
+        expect(@list3.find {|i| i == 1}).to eq(1)
+        expect(@list3.find {|i| i == 4}).to eq(nil)
+        expect(@list3.drop(2)).to eq([3])
+        expect(@list3.count).to eq(3)
+      end
+      
+      
+     it "Maximo" do
+       @list3.insert_single(2)
+       @list3.insert_single(3)
+       @list3.insert_single(1)
+      expect(@list3.max).to eq(3)
+     end
+     it "Minimo" do
+       @list3.insert_single(2)
+       @list3.insert_single(3)
+       @list3.insert_single(1)
+       expect(@list3.min).to eq(1)
+     end
+     it "Ordenar" do
+       @list3.insert_single(2)
+       @list3.insert_single(3)
+       @list3.insert_single(1)
+       expect(@list3.sort).to eq([1,2,3])
+     end
+     
+     it "Detectar" do
+       @list3.insert_single(1)
+       @list3.insert_single(3)
+       @list3.insert_single(4)
+       @list3.insert_single(2)
+       expect(@list3.detect{ |i| i.between?(2,3)}).to eq(3)
+     end
+   end
   
   
 end
