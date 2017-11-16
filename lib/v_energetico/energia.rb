@@ -1,12 +1,19 @@
+ # Author::    Gabriel Fdez  (mailto:alu0100885453@ull.edu.es)
 
+#Esta clase nos permite almacenar alimentos y calcular su IG
 class Energia
     
     attr_accessor :alimento, :proteinas, :glucidos, :lipidos, :valor_ener
     
+   
+ 
     def initialize(a,b,c,d)
        
-        @alimento, @proteinas, @glucidos, @lipidos, @valor_ener = a, b, c, d, []
+        @alimento, @proteinas, @glucidos, @lipidos= a, b, c, d
+        @valor_ener
     end
+    
+    
     
     def add(a,b,c,d)
         initialize(a,b,c,d)
@@ -27,15 +34,17 @@ class Energia
         
     end
     
+    #Calcula y devuelve el valor energetico
     def get_valor_energetico
 
-        return ((@proteinas + @glucidos) * 4 + @lipidos * 9).round(1)
-
+        @valor_ener = ((@proteinas + @glucidos) * 4 + @lipidos * 9).round(1)
+        @valor_ener
     end
+    
     
 end
 
-
+#Clase hija de Energia, contiene un objeto Energia y el nombre de un grupo de alimentos
 class Grupo_alimentos < Energia
 
   

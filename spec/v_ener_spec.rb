@@ -74,6 +74,7 @@ describe Energia do
             
           end
     end
+    
 end
 
 
@@ -82,6 +83,7 @@ describe Lista do
   before :each do
     @list = Lista.new()
     @huevo = Energia.new("Huevo Frito", 14.1, 0.0, 19.5)
+    @list3 = Lista.new()
   end
   
   it "Existe una nodo con su next y su prev" do
@@ -102,7 +104,7 @@ describe Lista do
     @list.insert_single(@huevo)
     expect(@list.inicio.value).to eq(@huevo) 
     expect(@list.size).to eq(1)
-    expect(@list.empty).to eq(false)
+    #expect(@list.empty).to eq(false)
     
   end
   
@@ -120,6 +122,7 @@ describe Lista do
     expect(@list.extract_end()).to eq("a")
     
   end
+  
   
 end
 
@@ -172,6 +175,5 @@ describe Grupo_alimentos do
           end
           
     end
-     
+    
   end
-
