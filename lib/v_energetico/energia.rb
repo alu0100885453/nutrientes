@@ -5,7 +5,7 @@ class Energia
     
     attr_accessor :alimento, :proteinas, :glucidos, :lipidos, :valor_ener
     
-   
+   include Comparable
  
     def initialize(a,b,c,d)
        
@@ -41,7 +41,11 @@ class Energia
         @valor_ener
     end
     
+    #Nos permite comparar objetos de Energia
+    def <=>(other) 
+        get_valor_energetico <=> other.get_valor_energetico
     
+    end
 end
 
 #Clase hija de Energia, contiene un objeto Energia y el nombre de un grupo de alimentos

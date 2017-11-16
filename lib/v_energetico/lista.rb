@@ -24,7 +24,7 @@ class Lista
         @size = 0
     end
     
-    #Inserta un nuevo valor por princio
+    #Inserta un nuevo valor por principio
     def insert_single(valor) #inicio
         nuevo= Node.new(valor,nil,@inicio)
         if (@size < 1)
