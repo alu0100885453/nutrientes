@@ -127,7 +127,7 @@ describe Lista do
 end
 
 
-describe Grupo_alimentos do   
+RSpec.describe Grupo_alimentos do   
     before :each do
    
       @Huevo_frito = Grupo_alimentos.new("Huevo frito", 14.1, 0.0, 19.5,"Huevos, lacteos y helados")
@@ -154,7 +154,7 @@ describe Grupo_alimentos do
       @Pera        = Grupo_alimentos.new("Pera", 0.5, 12.7, 0.3, "Frutas")
      end
      
-     describe "expectativas" do
+     context "expectativas" do
          
         
           it "la clase de un objeto" do
@@ -173,7 +173,20 @@ describe Grupo_alimentos do
             expect(@Huevo_frito.kind_of? BasicObject).to eq(true)
             expect(@Huevo_frito.kind_of? Object).to eq(true)
           end
+    end
+    context "modulo comparable" do
+      it "desigualdades" do
+          expect(@Huevo_frito < @Leche_vaca).to eq(false)
+          expect(@Huevo_frito > @Leche_vaca).to eq(true)
+          expect(@Huevo_frito <= @Leche_vaca).to eq(false)
+          expect(@Huevo_frito >= @Leche_vaca).to eq(true)
+        end
           
+      it "igualdades" do
+          expect(@Huevo_frito == @Leche_vaca).to eq(false)
+          expect(@Huevo_frito == @Huevo_frito).to eq(true)
+        
+      end
     end
     
   end
