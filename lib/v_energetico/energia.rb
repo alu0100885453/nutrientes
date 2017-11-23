@@ -70,11 +70,13 @@ class Energia
             alim_sum[index] = alim[index].reduce(:+)
             gluc_sum[index] = gluc[index].reduce(:+)
        end
+       
        #agrupamos los valores de cada individuo
        aibc = alim_sum.zip(gluc_sum)
-       #dividimos el AIBC del alimento entre el de la glucosa para cada individuo y hayamos la media
+       
+       #dividimos el AIBC del alimento entre el de la glucosa para cada individuo y hallamos la media
        alim_sum.each_with_index{|val,index| ig_ind[index] = aibc[index].reduce(:/)*100}
-       @indice_glucemico = (ig_ind.reduce(:+)/2).round(2)
+       @IG = (ig_ind.reduce(:+)/2).round(2)
         
     end
     
