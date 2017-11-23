@@ -48,7 +48,6 @@ class Energia
         @valor_ener
     end
     
-    
 end
 
 #Clase hija de Energia, contiene un objeto Energia y el nombre de un grupo de alimentos
