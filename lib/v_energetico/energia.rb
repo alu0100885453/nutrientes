@@ -48,6 +48,37 @@ class Energia
         @valor_ener
     end
     
+    def indice_glucemico(alimento, glucosa)
+    
+       alim = [],[]
+       gluc = [],[]
+       alim_sum = [],[]
+       gluc_sum = [],[]
+       aibc = [],[]
+       ig_ind = [],[]
+       
+       #para caada individuo calcula el AIBC (área incremental bajo la curva)
+       alimento.each_with_index do |val, index|
+
+            alimento[index].each_with_index do |val2, index2|
+            
+                next if index2==0
+                alim[index] << ((alimento[index][index2] - alimento[index][0]) + (alimento[index][index2-1] - alimento[index][0]))*2.5 
+                gluc[index] << ((glucosa[index][index2] - glucosa[index][0]) + (glucosa[index][index2-1] - glucosa[index][0]))*2.5
+            end
+            
+            alim_sum[index] = alim[index].reduce(:+)
+            gluc_sum[index] = gluc[index].reduce(:+)
+       end
+       #agrupamos los valores de cada individuo
+       aibc = alim_sum.zip(gluc_sum)
+       #dividimos el AIBC del alimento entre el de la glucosa para cada individuo y hayamos la media
+       alim_sum.each_with_index{|val,index| ig_ind[index] = aibc[index].reduce(:/)*100}
+       @indice_glucemico = (ig_ind.reduce(:+)/2).round(2)
+        
+    end
+    
+    
 end
 
 #Clase hija de Energia, contiene un objeto Energia y el nombre de un grupo de alimentos
