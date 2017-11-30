@@ -106,22 +106,28 @@ end
 class Array
    
     def method_for
-        limit = (self.length-1)
-        while limit > 0
-            for i in 0..limit-1
+        n = (self.length-1)
+        
+        while n > 0
+            cambios = 0
+            for i in 0..n-1
                 if self[i] > self[i+1]
                     self[i],self[i+1] = self[i+1],self[i]
+                    cambios = 1
                 end
             end
-            limit -= 1
+            if(cambios == 0) 
+                break
+            end
+            n -= 1
         end
-        #self
-        
-      end
+        self
+    end
       
-      def method_each
-        change = 0
-        while change == 0
+    def method_each
+        
+        cambios = 0
+        while cambios == 0
           a = nil
           self.each do |item|
             if(a == nil)
@@ -130,20 +136,19 @@ class Array
               self.delete(a)
               self << a
               a = item
-              change = 1
+              cambios = 1
             else
               a = item
             end
           end
-          if(change == 1)
-            change = 0
+          if(cambios == 1)
+            cambios = 0
           else
             break
           end
           
         end
-        #self
-        
-  end
+        self
+    end
 end
 

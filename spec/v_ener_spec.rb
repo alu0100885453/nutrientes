@@ -248,21 +248,26 @@ RSpec.describe Grupo_alimentos do
     
     context "Usando Benchmark" do
       it "Comprobando los métodos de ordenación" do
-        #array_alimentos = [@Huevo_frito, @Leche_vaca, @Yogurt]
-        #array_num = [3,4,2,1]
-        #expect(array_alimentos.method_for).to eq([@Leche_vaca, @Yogurt, @Huevo_frito])
-        #expect(array_num.method_for).to eq([1,2,3,4])
-        #expect(array_alimentos.method_each).to eq([@Leche_vaca, @Yogurt, @Huevo_frito])
-        #expect(array_alimentos.sort).to eq([@Leche_vaca, @Yogurt, @Huevo_frito])
+        array_alimentos = [@Huevo_frito, @Leche_vaca, @Yogurt]
+        array_num = [3,4,2,1]
+        expect(array_alimentos.method_for).to eq([@Leche_vaca, @Yogurt, @Huevo_frito])
+        expect(array_num.method_for).to eq([1,2,3,4])
+        expect(array_alimentos.method_each).to eq([@Leche_vaca, @Yogurt, @Huevo_frito])
+        expect(array_num.method_each).to eq([1,2,3,4])
+        expect(array_alimentos.sort).to eq([@Leche_vaca, @Yogurt, @Huevo_frito])
+        expect(array_num.sort).to eq([1,2,3,4])
+      end
+      
+      it "array completo para pruebas benchmark" do
         array_completo=[@Huevo_frito, @Leche_vaca, @Yogurt, @Cerdo, @Ternera, @Pollo, @Bacalao, @Atun, @Salmon, @Aceite_oliva, @Mantequilla, @Chocolate, @Azucar, @Arroz, @Lentejas, @Papas, @Tomate, @Cebolla, @Calabaza, @Manzana, @Platanos, @Pera]
-        n = 50000
+        
         Benchmark.bm(1) do |x|
           x.report("Método for")   { array_completo.method_for}
           x.report("Método each")  { array_completo.method_each }
           x.report("Método sort")  { array_completo.sort}
         end
+      end
     end
-  end
     
   end
   
