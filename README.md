@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.com/alu0100885453/nutrientes.svg?token=zu4nqodmW4CVq7Q3z9yE&branch=master)](https://travis-ci.com/alu0100885453/nutrientes)
+[![Coverage Status](https://coveralls.io/repos/github/alu0100885453/nutrientes/badge.svg)](https://coveralls.io/github/alu0100885453/nutrientes)
 # VEnergetico
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/V_energetico`. To experiment with that code, run `bin/console` for an interactive prompt.
