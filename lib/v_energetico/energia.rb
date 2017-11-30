@@ -9,14 +9,17 @@ class Energia
  
     #Nos permite comparar objetos de Energia
     def <=>(other) 
-        get_valor_energetico <=> other.get_valor_energetico
-    
+        return nil unless other.kind_of? Energia
+        #get_valor_energetico <=> other.get_valor_energetico
+        @valor_ener <=> other.valor_ener
     end
     
     def initialize(a,b,c,d)
        
         @alimento, @proteinas, @glucidos, @lipidos= a, b, c, d
-        @valor_ener
+        @valor_ener = get_valor_energetico
+        
+        
     end
     
     
@@ -86,6 +89,7 @@ end
 #Clase hija de Energia, contiene un objeto Energia y el nombre de un grupo de alimentos
 class Grupo_alimentos < Energia
 
+  attr_accessor :nombre_grupo
   
     def initialize(a,b,c,d,e)
         super(a,b,c,d)
@@ -97,5 +101,49 @@ class Grupo_alimentos < Energia
         
     end
     
+end
+
+class Array
+   
+    def method_for
+        limit = (self.length-1)
+        while limit > 0
+            for i in 0..limit-1
+                if self[i] > self[i+1]
+                    self[i],self[i+1] = self[i+1],self[i]
+                end
+            end
+            limit -= 1
+        end
+        #self
+        
+      end
+      
+      def method_each
+        change = 0
+        while change == 0
+          a = nil
+          self.each do |item|
+            if(a == nil)
+              a = item
+            elsif (a > item)
+              self.delete(a)
+              self << a
+              a = item
+              change = 1
+            else
+              a = item
+            end
+          end
+          if(change == 1)
+            change = 0
+          else
+            break
+          end
+          
+        end
+        #self
+        
+  end
 end
 
